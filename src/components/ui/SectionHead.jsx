@@ -1,0 +1,41 @@
+import React from "react";
+import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
+import Countdown from "./Timer";
+import PrimaryBtn from "./btns/PrimaryBtn";
+
+const SectionHeading = ({ heading, hasTimer, hasButton, text, hasArrow }) => {
+
+    return (
+        <>
+            <div className="mx-4 lg:mx-24 mb-8 flex flex-col gap-6">
+                <div id="top" className="flex items-center gap-2 text-[14px] lg:text-[16px]">
+                    <div className="bg-[#DB4444] w-[15px] h-[30px] lg:w-[20px] lg:h-[40px]"></div>
+                    <p className="text-[#DB4444]">{heading}</p>
+                </div>
+                <div id="bottom" className="flex flex-col lg:flex-row items-end justify-between">
+                    <div className="flex flex-col md:flex-row w-full items-end gap-12 lg:gap-24">
+                        <p className="text-[24px] lg:text-[36px] font-bold w-full">{text}</p>
+                        <div className="">{hasTimer && <Countdown />}</div>
+                    </div>
+
+                    <div className="text-nowrap border mt-4 lg:mt-0">
+                        {hasArrow ? (
+                            <div className="flex gap-2">
+                                <button className="p-2 bg-gray-100 rounded-full hover:bg-gray-200">
+                                    <FaArrowRightLong />
+                                </button>
+                                <button className="p-2 bg-gray-100 rounded-full hover:bg-gray-200">
+                                    <FaArrowLeftLong />
+                                </button>
+                            </div>
+                        ) : !hasArrow && hasButton && (
+                            <PrimaryBtn text="View All Products" />
+                        )}
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default SectionHeading;

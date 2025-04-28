@@ -31,7 +31,7 @@ const Nav = () => {
 
     return (
         <div>
-            <nav className='hidden lg:flex lg:flex-col'>
+            <nav className='hidden lg:flex lg:flex-col z-20'>
                 <Adds />
                 <div className='flex justify-between items-center mx-24 p-2'>
                     <div><h1 className='text-[24px] font-bold'>Exclusive </h1></div>
@@ -75,7 +75,7 @@ const Nav = () => {
                     </div>
                 </div>
             </nav>
-            <div id="MobileNav" className='lg:hidden fixed top-0 z-10 bg-white w-full'>
+            <div id="MobileNav" className='lg:hidden fixed top-0 z-20 bg-white w-full'>
                 <Adds />
                 <div className='mx-4 grid gap-4'>
                     <div className='flex justify-between items-center'>

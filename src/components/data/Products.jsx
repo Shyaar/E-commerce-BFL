@@ -6,7 +6,7 @@ import ProductCard from "../ui/cards/productCard";
 
 export const ProductsData = createContext(null)
 
-const ProductsProvider = ({children}) => {
+const ProductsProvider = ({ children }) => {
 
     const [data1, setData1] = useState(null)
     const [data2, setData2] = useState(null)
@@ -23,8 +23,12 @@ const ProductsProvider = ({children}) => {
                 const collected1 = await res.json()
                 const collected2 = await res2.json()
 
-                setData1(collected1)
-                setData2(collected2)
+                    setData1(collected1)
+                    setData2(collected2)
+
+
+                console.log(data1)
+                console.log(data2)
 
             } catch (error) {
                 console.error("Something went wrong:", error);
@@ -36,9 +40,9 @@ const ProductsProvider = ({children}) => {
 
     return (
         <>
-            <ProductsData.Provider value={{data1,data2}}>
-                    {children}
-                </ProductsData.Provider>
+            <ProductsData.Provider value={{ data1, data2 }}>
+                {children}
+            </ProductsData.Provider>
 
         </>
     );

@@ -65,7 +65,7 @@ const Home = () => {
 
                 <div id="bestSelling" className="my-16">
                     <SectionHeading heading="Categories" text="Browse By Category" hasTimer={false} />
-                    <div className="mx-6 md:mx-12 lg:mx-24 flex overflow-x-auto overflow-hidden">
+                    <div className="mx-6 md:mx-12 lg:mx-24 flex items-center justify-center overflow-x-auto overflow-hidden">
                         <Categories />
                     </div>
                     <hr className="my-6" />
@@ -116,8 +116,8 @@ const Home = () => {
                                             <p className="font-bold text-center text-[16px]">{countdown[3].value}</p>
                                             <p className="text-center text-[11px]">{countdown[3].label}</p>
                                         </div>
-                                        
-                                        
+
+
                                     </div>
                                 </div>
                                 <div id="bottom" className="md:flex gap-2 items-center hidden my-9">
@@ -161,7 +161,7 @@ const Home = () => {
                         <div id="left" >
                             <div className="bg-black h-full rounded">
                                 <div className="relative h-full ">
-                                    <div className="absolute inset-0 mt-20 w-[500px]">
+                                    <div className="absolute inset-0 mt-20 md:w-[350px] lg:w-[400px]">
                                         <img src={p5} alt="" className=" w-full h-full object-fit z-9" />
                                     </div>
 
@@ -194,9 +194,10 @@ const Home = () => {
 
                             <div id="bottom" className="  grid grid-cols-2 gap-4 h-full">
 
-                                <div id="text" className="relative text-white bg-black/85 rounded flex flex-col justify-end  z-8 w-full">
-                                    <div className="absolute opacity-80 inset-0 px-10 py-4 md:w-[180px] md:h-[170px]">
-                                        <img src={Speakers} alt="" className=" w-full h-full object-fit z-0" />
+                                <div id="text" className="relative text-white bg-black/85 rounded flex flex-col items-center justify-end  z-8 w-full overflow-hidden">
+                                    <div className=" absolute opacity-80 px-10 py-4 md:w-[190px] md:h-[150px]">
+
+                                        <img src={Speakers} alt="" className=" w-full h-full inset-0 object-fit z-0" />
                                     </div >
                                     <div className="flex flex-col gap-1 z-0 w-full p-3">
                                         <div >
@@ -207,12 +208,11 @@ const Home = () => {
                                     </div>
                                 </div>
 
+                                <div id="text" className="relative text-white bg-black/85 rounded flex flex-col items-center justify-end  z-8 w-full overflow-hidden">
+                                    <div className=" absolute opacity-80 px-10 py-4 md:w-[190px] md:h-[150px]">
 
-                                <div id="text" className="text-white relative bg-black/85 rounded flex flex-col justify-end  z-8 w-full gap-2" >
-                                    <div className="absolute opacity-80 inset-0 px-10 py-4">
-                                        <img src={Peff} alt="" className=" w-full h-full object-fit z-9" />
+                                        <img src={Peff} alt="" className=" w-full h-full inset-0 object-fit z-0" />
                                     </div >
-                                    
                                     <div className="flex flex-col gap-1 z-0 w-full p-3">
                                         <div >
                                             <p className="font-bold md:text-[18px] text-[24px]">Perfume</p>
@@ -220,7 +220,6 @@ const Home = () => {
                                         </div>
                                         <TextBtn text="Shop Now" />
                                     </div>
-
                                 </div>
 
                             </div>

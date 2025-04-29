@@ -1,7 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
 import { IoIosSearch } from "react-icons/io";
-import { IoIosHeartEmpty } from "react-icons/io";
-import { IoCartOutline } from "react-icons/io5";
 import { FiUser } from "react-icons/fi";
 import DropDown from './ui/DropDown';
 import { useEffect, useState } from 'react';
@@ -9,6 +7,8 @@ import { TbMenu3 } from "react-icons/tb";
 import { AiOutlineClose } from "react-icons/ai";
 import RightNav from './ui/RightNav';
 import Adds from './ui/Add';
+import CartBtn from './ui/btns/CartBtn';
+import WishListBtn from './ui/btns/WishListBtn';
 
 
 const Nav = () => {
@@ -48,8 +48,12 @@ const Nav = () => {
                         </div>
 
                         <div className='flex justify-between gap-5 h-full w-full relative'>
-                            <IoIosHeartEmpty className='text-[30px] p-1 ' />
-                            <IoCartOutline className='text-[30px] p-1 ' />
+
+                            <Link to="/wishlist"> <WishListBtn /> </Link>
+
+                            <Link to="/Cart"><CartBtn /></Link>
+                            
+
 
                             <FiUser
                                 id='profile'
@@ -59,7 +63,6 @@ const Nav = () => {
                                 }
                                 }
                                 className={`text-[30px] p-1 cursor-pointer  ${profileActive ? 'bg-red-500 text-white rounded-full' : ''}`}
-
                             />
 
                             {dropVisible && (
@@ -81,8 +84,9 @@ const Nav = () => {
                     <div className='flex justify-between items-center'>
                         <h1 className='text-[16px] font-bold w-full'>Exclusive </h1>
                         <div className='flex justify-between gap-2 h-full relative'>
-                            <IoIosHeartEmpty className='text-[30px] p-1' />
-                            <IoCartOutline className='text-[30px] p-1 ' />
+
+                            <Link to="/wishlist"> <WishListBtn /> </Link>
+                            <Link to="/Cart"><CartBtn /></Link>
 
                             <FiUser id='profile'
                                 onClick={() => {
@@ -120,30 +124,31 @@ const Nav = () => {
                                             <NavLink className={navLinkStyles} to="/signup">Sign Up</NavLink>
                                             <NavLink className={navLinkStyles} to="/signup">Sign Up</NavLink>
                                         </ul>
-                                        <p onClick={()=> setCategories(true)} className='p-2'>Categories</p>
+                                        <p onClick={() => setCategories(true)} className='p-2'>Categories</p>
                                     </div>
                                 </div>
 
                                 {categories && (
-                                        <div className=''>
-                                            <div id="rightNav" className="fixed top-0 left-0 flex flex-col gap-4 border-r py-10 bg-white w-full border border-red-900 items-center">
+                                    <div className=''>
+                                        <div id="rightNav" className="fixed top-0 left-0 flex flex-col gap-4 border-r py-10 bg-white w-full border border-red-900 items-center">
 
 
-                                                <AiOutlineClose onClick={()=>{setCategories(false)
-                                                    console.log('clicked close')
-                                                }} className='mb-6' />
+                                            <AiOutlineClose onClick={() => {
+                                                setCategories(false)
+                                                console.log('clicked close')
+                                            }} className='mb-6' />
 
-                                                <RightNav text="Woman’s Fashion" />
-                                                <RightNav text="Men's Fashion" />
-                                                <RightNav text="Electronics" />
-                                                <RightNav text="Home & Lifestyle" />
-                                                <RightNav text="Medicine" />
-                                                <RightNav text="Sports & Outdoor" />
-                                                <RightNav text="Baby’s & Toys" />
-                                                <RightNav text="Groceries & Pets" />
-                                                <RightNav text="Health & Beauty" />
-                                            </div>
+                                            <RightNav text="Woman’s Fashion" />
+                                            <RightNav text="Men's Fashion" />
+                                            <RightNav text="Electronics" />
+                                            <RightNav text="Home & Lifestyle" />
+                                            <RightNav text="Medicine" />
+                                            <RightNav text="Sports & Outdoor" />
+                                            <RightNav text="Baby’s & Toys" />
+                                            <RightNav text="Groceries & Pets" />
+                                            <RightNav text="Health & Beauty" />
                                         </div>
+                                    </div>
                                 )}
                             </>
                         )}

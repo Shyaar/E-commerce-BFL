@@ -5,13 +5,15 @@ import ProductCard from '../ui/cards/productCard'
 const BestSelling = () => {
     const { data2 } = useContext(ProductsData)
 
+
     return (
         <>
-            <div className="grid gap-6 md:flex lg:flex overflow-x-auto">
+            {!data2? <p>... Loading</p> :
+            (<div className="grid gap-6 md:flex lg:flex overflow-x-auto">
                 {data2 && data2.slice(0, 5).map((data) => (
-                    <ProductCard image={data.category.image} title={data.category.name} price={data.price} />
+                    <ProductCard id={data.id} key={data.id} image={data.category.image} title={data.category.name} price={data.price} />
                 ))}
-            </div>
+            </div>)}
         </>
     )
 }

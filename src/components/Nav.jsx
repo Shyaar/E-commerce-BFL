@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { IoIosSearch } from "react-icons/io";
 import { FiUser } from "react-icons/fi";
 import DropDown from './ui/DropDown';
@@ -20,6 +20,11 @@ const Nav = () => {
     const [dropDownMenu, setDropDownMenu] = useState(false)
     const [categories, setCategories] = useState(false)
 
+    const location = useLocation()
+
+    useEffect(()=>{
+        setDropDownMenu(false)
+    },[location])
 
 
 

@@ -40,6 +40,7 @@ const ProductsProvider = ({ children }) => {
 
     return (
         <>
+        
             <ProductsData.Provider value={{ data1, data2 }}>
                 {children}
             </ProductsData.Provider>

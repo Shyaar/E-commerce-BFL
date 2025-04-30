@@ -1,44 +1,28 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { FcLike } from "react-icons/fc";
-import { WishListProducts } from "../../../pages/WishList";
-import { ProductsData } from "../../data/Products";
-import WishlistProvider from "../../../pages/wishlistProvider";
+import  { wishListContext } from "../../wishlistProvider";
 
 
 export const likedProductProvider = createContext()
 
 const LikeBtn = ({ id }) => {
 
+    const { wishlistItems } = useContext(wishListContext);
 
-    const { data1, data2 } = useContext(ProductsData)
-    const allProducts = (data1 && data2 ? [...data1, ...data2] : [])
-
-    const [collectedId, setCollectedId] = useState(null)
-
-
-    const [likeIsActive, setLikeIsActive] = useState(false)
-
-    useEffect(()=>{
-
-    },[])
-
-
-    // const { wishlistItems, setWishListItems } = useContext(WishListProducts)
+    const isLiked = wishlistItems?.some(item => item.id === id);
 
 
 
+    useEffect(() => {
 
-
-
+    }, [])
 
     return (
         <>
-            <div className="bg-white p-1 rounded-full" onClick={() => { setLikeIsActive(prev => !prev)
-            setCollectedId(id? id:"")
-            console.log(id)
+            <div id={id} className="bg-white p-1 rounded-full" onClick={() => {
             }}>
-                {likeIsActive && <FcLike />} {!likeIsActive && <IoIosHeartEmpty />}
+                {isLiked && <FcLike />} {!isLiked && <IoIosHeartEmpty />}
             </div>
         </>
     );

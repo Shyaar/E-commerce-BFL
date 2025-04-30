@@ -4,9 +4,10 @@ import LikeBtn from "../btns/LikeBtn";
 import HideBtn from "../btns/HideBtn";
 import { Hand } from "lucide-react";
 import { ProductsData } from "../../data/Products";
-import { wishhListContext } from "../../../pages/wishlistProvider";
+import { wishListContext } from "../../wishlistProvider";
 
-const ProductCard = ({ image, title, price, id, like }) => {
+const ProductCard = ({ image, title, price, id, active}) => {
+
     const [addVisible, setAddVisible] = useState(false);
 
     const [clickedId, setClickedId] = useState(null)
@@ -18,23 +19,24 @@ const ProductCard = ({ image, title, price, id, like }) => {
 
 
 
-    const { wishlistItems, setWishListItems } = useContext(wishhListContext)
+    const { wishlistItems, setWishListItems } = useContext(wishListContext)
 
-    const [likedItem, setLikedItem] = useState(null)
 
     function handleAdd() {
         console.log(id)
-        setLikedItem(id)
-        console.log(likedItem)
+        const likedItem = allProducts.find(data => data.id === id)
+        // console.log(likedItem)
+        const exists = wishlistItems.find(item=>item.id === likedItem.id)
+        console.log(active)
+
+        exists? setWishListItems(wishlistItems.filter(item=>item.id != exists.id)) :setWishListItems(prev => [...prev, likedItem])
     }
 
-    const found = likedItem? allProducts.find(data=>data.id === likedItem.id) : ""
 
     useEffect(() => {
-        console.log(`found:${found}`)
-        console.log(allProducts)
-        console.log(likedItem)
-    }, [likedItem,found])
+        // console.log(likedItem)
+        // console.log(wishlistItems)
+    }, [wishlistItems])
 
 
 
@@ -118,7 +120,7 @@ const ProductCard = ({ image, title, price, id, like }) => {
                     <div className="flex flex-col gap-2 absolute top-2 right-2">
 
                         <div onClick={() => handleAdd()}>
-                            <LikeBtn id={id ? id : ""} />
+                            <LikeBtn id={id ? id : ""} active={active? active:""}/>
                         </div>
 
                         <HideBtn />

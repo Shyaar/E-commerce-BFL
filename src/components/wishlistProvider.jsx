@@ -1,16 +1,18 @@
 import React, { createContext, useEffect, useState } from 'react'
+import { MdOutlinePublishedWithChanges } from 'react-icons/md'
 
-export const wishhListContext = createContext()
+export const wishListContext = createContext()
 
 const WishlistProvider = ({children}) => {
 
 
   const [wishlistItems, setWishListItems] = useState([])
+  
   return (
     <>
-      <wishhListContext.Provider value={{ wishlistItems, setWishListItems }}>
+      <wishListContext.Provider value={{ wishlistItems, setWishListItems }}>
         {children}
-      </wishhListContext.Provider>
+      </wishListContext.Provider>
     </>
   )
 }

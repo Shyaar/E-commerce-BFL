@@ -29,6 +29,10 @@ const ProductCard = ({ image, title, price, id, active}) => {
         const exists = wishlistItems.find(item=>item.id === likedItem.id)
         console.log(active)
 
+        // const found = wishlistItems.find(item=>item.id === likedItem.id)
+        // console.log(active)
+
+
         exists? setWishListItems(wishlistItems.filter(item=>item.id != exists.id)) :setWishListItems(prev => [...prev, likedItem])
     }
 
@@ -78,13 +82,13 @@ const ProductCard = ({ image, title, price, id, active}) => {
 
 
                     {addVisible && (
-                        <div
+                        <div 
                             className="absolute bottom-0 w-full"
                             onMouseEnter={() => { setAddVisible(true) }}
                             onMouseLeave={() => { setAddVisible(false) }}
                         >
                             <div className="w-full">
-                                <AddBtn />
+                                <AddBtn id={id?id:""}/>
                             </div>
                         </div>
                     )}
@@ -129,7 +133,7 @@ const ProductCard = ({ image, title, price, id, active}) => {
                         <div
                             className="absolute bottom-0 w-full"                        >
                             <div className="w-full">
-                                <AddBtn />
+                                <AddBtn id={id?id:""} />
                             </div>
                         </div>
                     )}

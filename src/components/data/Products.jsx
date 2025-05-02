@@ -36,7 +36,7 @@ const ProductsProvider = ({ children }) => {
         }
         getData()
 
-    }, [])
+    }, [data1,data2])
 
     return (
         <>

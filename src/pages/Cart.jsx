@@ -10,19 +10,25 @@ import PrimaryBtn from '../components/ui/btns/PrimaryBtn';
 
 const Cart = () => {
   const { cartItems, setCartItems } = useContext(cartContext)
-  // const [close, setClose] = useState(false)
+  console.log(cartItems)
+
+  cartItems.length > 0? console.log(cartItems.price):console.log("empty")
 
 
-  const [totalPrice, setTotalPrice] = useState(0)
+  const [subTotal, setSubTotal] = useState(0)
 
   const [shippingPrice, setShippingPrice] = useState("free")
 
   const [Total, setTotal] = useState(0)
 
-  const accTotal = cartItems.map(items => cartItems.price)
+  const accTotal = cartItems.length >0 ? cartItems.map(items => items.price) : 0
+
+  // accTotal = accTotal.reduce((acc,curr)=> acc + curr )
+
+  console.log(Array.isArray(accTotal))
 
   useEffect(() => {
-    setTotalPrice(accTotal)
+    setSubTotal(accTotal)
     
   }, [cartItems])
 
@@ -65,6 +71,8 @@ const Cart = () => {
   useEffect(() => {
 
   }, [cartItems])
+
+
   return (
     <>
       <div className="mx-6 md:mx-24 ">
@@ -144,7 +152,7 @@ const Cart = () => {
             <div>
               <div className='flex justify-between py-2 border-b'>
                 <p>Subtotal:</p>
-                <p>{totalPrice}</p>
+                <p>{subTotal}</p>
               </div>
               <div className='flex justify-between py-2 border-b'>
                 <p>Shipping:</p>

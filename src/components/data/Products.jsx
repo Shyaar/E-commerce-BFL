@@ -18,7 +18,8 @@ const ProductsProvider = ({ children }) => {
         const getData = async () => {
             try {
                 const res = await fetch('https://fakestoreapi.com/products')
-                const res2 = await fetch('https://api.escuelajs.co/api/v1/products')
+                const res2 = await fetch('https://fakestoreapi.com/products')
+                // const res2 = await fetch('https://api.escuelajs.co/api/v1/products')
 
                 const collected1 = await res.json()
                 const collected2 = await res2.json()
@@ -27,8 +28,8 @@ const ProductsProvider = ({ children }) => {
                     setData2(collected2)
 
 
-                console.log(data1)
-                console.log(data2)
+                // console.log(data1)
+                // console.log(data2)
 
             } catch (error) {
                 console.error("Something went wrong:", error);

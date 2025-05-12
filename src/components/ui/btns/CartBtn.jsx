@@ -8,7 +8,7 @@ const CartBtn = () => {
     const { cartItems, setCartItems } = useContext(cartContext)
     
     useEffect(()=>{
-        console.log(cartItems.length)
+        // console.log(cartItems.length)
     },[cartItems])
 
 

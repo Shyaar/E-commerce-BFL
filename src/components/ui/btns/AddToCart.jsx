@@ -9,13 +9,22 @@ const AddBtn = ({ id }) => {
     const { cartItems, setCartItems } = useContext(cartContext)
 
     function handleAdd() {
-        const found = allProducts.find(product => product.id === id)
-        setCartItems(prev => [...prev, {...found, numToBuy:1}])
+        const exists = cartItems.find(item => item.id === id)
+        if (exists) {
+            (console.log("found"))
+            exists.numToBuy +=1
+            console.log(exists.price)
+        }
+        else {
+            console.log("not Found")
+            const found = allProducts.find(product => product.id === id)
+            setCartItems(prev => [...prev, { ...found, numToBuy: 1, subTotal: 0 }])
+        }
     }
 
     useEffect(() => {
 
-    }, [cartItems])
+    }, [cartItems,allProducts])
 
 
 

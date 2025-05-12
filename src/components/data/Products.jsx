@@ -24,8 +24,8 @@ const ProductsProvider = ({ children }) => {
                 const collected1 = await res.json()
                 const collected2 = await res2.json()
 
-                    setData1(collected1)
-                    setData2(collected2)
+                    setData1(collected1?collected1:[])
+                    setData2(collected2?collected2:[])
 
 
                 // console.log(data1)

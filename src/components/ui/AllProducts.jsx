@@ -1,11 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { ProductsData } from '../data/Products'
 import ProductCard from './cards/productCard'
 import LikeBtn from './btns/LikeBtn'
 
 const AllProducts = () => {
-  const { data1, data2 } = useContext(ProductsData)
+  const { data1, data2 } = useContext(ProductsData) || []
   const allProducts = (data1 && data2 ? [...data1, ...data2] : [])
+
+  useEffect(() => {
+
+  }, [data1, data2])
 
   return (
     <>

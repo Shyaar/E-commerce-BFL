@@ -10,27 +10,37 @@ import PrimaryBtn from '../components/ui/btns/PrimaryBtn';
 
 const Cart = () => {
   const { cartItems, setCartItems } = useContext(cartContext)
-  console.log(cartItems)
 
-  cartItems.length > 0? console.log(cartItems.price):console.log("empty")
+  cartItems.length > 0 ? console.log(cartItems.map(items => items.price)) : console.log("empty")
+
+  cartItems.forEach(item => {
+    item.subTotal= item.price * item.numToBuy
+  });
+
+console.log(cartItems)
+
+  
 
 
   const [subTotal, setSubTotal] = useState(0)
+  
 
   const [shippingPrice, setShippingPrice] = useState("free")
 
   const [Total, setTotal] = useState(0)
 
-  const accTotal = cartItems.length >0 ? cartItems.map(items => items.price) : 0
+  const accTotal = cartItems.length > 0 ? cartItems.map(items => items.subTotal) : []
+  console.log(accTotal)
 
-  // accTotal = accTotal.reduce((acc,curr)=> acc + curr )
-
-  console.log(Array.isArray(accTotal))
 
   useEffect(() => {
-    setSubTotal(accTotal)
-    
+    setSubTotal(accTotal.reduce((acc, curr) => acc + curr, 0))
   }, [cartItems])
+
+  useEffect(() => {
+    setTotal(shippingPrice === "free" ? subTotal+0 : subTotal + shippingPrice)
+    console.log(Total)
+  })
 
 
 
@@ -156,7 +166,7 @@ const Cart = () => {
               </div>
               <div className='flex justify-between py-2 border-b'>
                 <p>Shipping:</p>
-                <p>Free</p>
+                <p>{shippingPrice}</p>
               </div>
               <div className='flex justify-between py-2'>
                 <p>Total:</p>

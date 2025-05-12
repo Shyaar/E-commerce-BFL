@@ -1,10 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext,useEffect } from 'react'
 import { ProductsData } from './Products'
 import ProductCard from '../ui/cards/productCard'
 
 const BestSelling = () => {
-    const { data2 } = useContext(ProductsData)
+    const { data2 } = useContext(ProductsData)||[]
 
+      useEffect(()=>{
+    
+      },[data2])
 
     return (
         <>

@@ -9,6 +9,7 @@ import RightNav from './ui/RightNav';
 import Adds from './ui/Add';
 import CartBtn from './ui/btns/CartBtn';
 import WishListBtn from './ui/btns/WishListBtn';
+import Logo from '/Shwan.png'
 
 
 const Nav = () => {
@@ -39,7 +40,7 @@ const Nav = () => {
             <nav className='hidden lg:flex lg:flex-col z-20'>
                 <Adds />
                 <div className='flex justify-between items-center mx-24 p-2'>
-                    <div><h1 className='text-[24px] font-bold'><Link to="/">Exclusive</Link></h1></div>
+                    <div className='flex'><img src={Logo} alt="" className='w-8 h-8' /><h1 className='text-[24px] font-bold'><Link to="/">ShwanDmall</Link></h1></div>
                     <ul className='flex gap-9'>
                         <li><NavLink className={navLinkStyles} to="/">Home</NavLink></li>
                         <li><NavLink className={navLinkStyles} to="contact">Contact</NavLink></li>
@@ -87,7 +88,7 @@ const Nav = () => {
                 <Adds />
                 <div className='mx-4 grid gap-4'>
                     <div className='flex justify-between items-center'>
-                        <h1 className='text-[16px] font-bold w-full'><Link to="/">Exclusive</Link></h1>
+                        <div className='text-[16px] font-bold w-full'><Link to="/" className='flex items-center gap-2'><img src={Logo} className='w-6 h-6' alt="" />ShwanDmall</Link></div>
                         <div className='flex justify-between gap-2 h-full relative'>
 
                             <Link to="/wishlist"> <WishListBtn /> </Link>
@@ -158,7 +159,7 @@ const Nav = () => {
                             </>
                         )}
                     </div>
-                    <div id="search" className='bg-[#F5F5F5] p-2 flex items-center'>
+                    <div id="search" className='bg-[#F5F5F5] p-2 flex items-center justify-between'>
                         <input type="search" placeholder='What are you looking for?' className='bg-transparent text-black' />
                         <IoIosSearch className='text-[16px]' />
                     </div>
